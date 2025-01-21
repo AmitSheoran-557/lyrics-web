@@ -23,7 +23,7 @@ const Header = () => {
 
     return (
         <div className="flex justify-between items-center shadow-custom-1 mt-2.5 mb-[17px] w-full max-w-[1128px] mx-auto rounded-[20px] overflow-hidden py-2.5 pe-3 xl:ps-[38px] lg:ps-6 sm:ps-4 ps-3">
-            <button onClick={handleOpen} className={`hidden size-7 justify-center max-lg:absolute max-lg:right-4 relative z-[70] max-lg:flex flex-col overflow-hidden`}>
+            <button onClick={handleOpen} className={`hidden size-7 justify-center max-lg:absolute max-lg:right-7 relative z-[70] max-lg:flex flex-col overflow-hidden`}>
                 <span className={`w-6 transition-all duration-300 min-h-[2px] max-h-[2px] mb-1 bg-black relative after:w-full after:h-full  after:absolute after:top-0 after:left-0 ${open ? "rotate-45 after:rotate-90 after:bg-black !bg-black" : ""}`}></span>
                 <span className={`w-6 transition-all duration-300 min-h-[2px] max-h-[2px] mb-1 bg-black ${open ? "hidden" : ""}`}></span>
                 <span className={`w-6 transition-all duration-300 min-h-[2px] max-h-[2px] mb-1 bg-black after:!bg-black ${open ? "-translate-x-10 !bg-black" : ""}`}></span>

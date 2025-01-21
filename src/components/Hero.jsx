@@ -10,18 +10,29 @@ const Hero = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [selectedTab, setSelectedTab] = useState(searchParams.get('tab') || 'All');
     const [profileName, setProfileName] = useState('Billie Eilish');
+
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
-        setSearchParams({ tab });
+        setSearchParams({ tab });  
     };
 
     const handleAlphabetClick = (letter) => {
         setProfileName(`${letter}illen Eilish`);
+        setSearchParams((prevParams) => {
+            const newParams = new URLSearchParams(prevParams);
+            newParams.set('category', letter);   
+            return newParams;
+        });
     };
 
     useEffect(() => {
         const tab = searchParams.get('tab') || 'All';
         setSelectedTab(tab);
+
+        const category = searchParams.get('category');
+        if (category) {
+            setProfileName(`${category}illen Eilish`);
+        }
     }, [searchParams]);
 
     return (
@@ -33,9 +44,9 @@ const Hero = () => {
                         <CustomButton className={`${selectedTab === 'All' ? 'bg-black text-white' : ''}`} title="All" onClick={() => handleTabChange('All')} />
                         <CustomButton className={`${selectedTab === 'Pop' ? 'bg-black text-white' : ''}`} title="Pop" onClick={() => handleTabChange('Pop')} />
                         <CustomButton className={`${selectedTab === 'Rock' ? 'bg-black text-white' : ''}`} title="Rock" onClick={() => handleTabChange('Rock')} />
-                        <select name="More" className='border border-black hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]'
+                        <select  className='border border-black lg:px-1.5 lg:text-xs px-1 py-0.5 hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]'
                             onChange={(e) => handleTabChange(e.target.value)} value={selectedTab}>
-                            <option default value=''>More</option>
+                            <option default className='max-w-max'>More</option>
                             <option value="All">All</option>
                             <option value="Pop">Pop</option>
                             <option value="Rock">Rock</option>
