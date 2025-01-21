@@ -9,18 +9,18 @@ import SideImg from '../assets/images/png/hero-side-img.png';
 const Hero = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [selectedTab, setSelectedTab] = useState(searchParams.get('tab') || 'all');
-    const [profileName, setProfileName] = useState('Billie Eilish');
+    const [profileName, setProfileName] = useState((''));
 
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
-        setSearchParams({ tab });  
+        setSearchParams({ tab});  
     };
 
     const handleAlphabetClick = (letter) => {
-        setProfileName(`${letter}illen Eilish`);
+        setProfileName(`${letter}illen Eilish`);  
         setSearchParams((prevParams) => {
             const newParams = new URLSearchParams(prevParams);
-            newParams.set('category', letter.toLowerCase());   
+            newParams.set('category', letter.toLowerCase());  
             return newParams;
         });
     };
@@ -28,10 +28,9 @@ const Hero = () => {
     useEffect(() => {
         const tab = searchParams.get('tab') || 'All';
         setSelectedTab(tab);
-
         const category = searchParams.get('category');
         if (category) {
-            setProfileName(`${category}illen Eilish`);
+            setProfileName(`${category.toUpperCase()}illen Eilish`);
         }
     }, [searchParams]);
 
@@ -52,7 +51,7 @@ const Hero = () => {
                             <option className='text-xs' value="rock">Rock</option>
                         </select>
                     </div>
-                    <div className="flex gap-[1.5px] overflow-x-scroll scrollbar-hide w-full">
+                    <div className="flex gap-[1.4px] overflow-x-scroll scrollbar-hide w-full">
                         {HERO_ALPHABET_LIST.map((item, index) => (
                             <button key={index}
                                 className={`uppercase hover:bg-black text-black min-w-[29px] min-h-[29px] rounded-full hover:text-white transition-all ease-linear duration-300 ${profileName.startsWith(item) ? 'bg-black text-white' : ''}`}
@@ -69,7 +68,7 @@ const Hero = () => {
                                 {selectedTab === 'all' ? 'hit me hard and soft' : selectedTab === 'pop' ? 'Pop Hits' : selectedTab === 'rock' ? 'Rock Hits' : 'hit me hard and soft'}
                             </h1>
                             <div className="flex gap-[26px] items-center lg:-mb-14">
-                                <img className='xl:max-w-[206px] lg:max-w-44 md:max-w-40 sm:max-w-32 max-w-28 w-full' src={ProfileImg} alt="profile-img" />
+                                <img className='xl:max-w-[206px] lg:max-w-44 pointer-events-none md:max-w-40 sm:max-w-32 max-w-28 w-full' src={ProfileImg} alt="profile-img" />
                                 <div>
                                     <h3 className='lg:mb-[5px] mb-0.5 font-semibold lg:text-[32px] text-white md:text-3xl sm:text-2xl text-xl'>
                                         {profileName}
@@ -79,7 +78,7 @@ const Hero = () => {
                             </div>
                         </div>
                         <div className="lg:w-4/12 w-full flex items-start lg:justify-end justify-center max-lg:mt-7">
-                            <img className='max-w-[261px] lg:pb-8 w-full' src={SideImg} alt="ladder-img" />
+                            <img className='max-w-[261px] lg:pb-8 w-full pointer-events-none' src={SideImg} alt="ladder-img" />
                         </div>
                     </div>
                 </div>
