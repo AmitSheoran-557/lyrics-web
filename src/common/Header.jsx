@@ -22,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <div className="flex justify-between items-center shadow-custom-1 mt-2.5 mb-[17px] w-full max-w-[1128px] mx-auto rounded-[20px] overflow-hidden py-2.5 pe-3 xl:ps-[38px] lg:ps-6 sm:ps-4 ps-3">
+        <div className="flex justify-between items-center shadow-custom-1 mt-2.5 mb-[17px] w-full max-w-[1128px] rounded-[20px] overflow-hidden py-2.5 pe-3 xl:ps-[38px] lg:ps-6 sm:ps-4 ps-3">
             <button onClick={handleOpen} className={`hidden size-7 justify-center max-lg:absolute max-lg:right-7 relative z-[70] max-lg:flex flex-col overflow-hidden`}>
                 <span className={`w-6 transition-all duration-300 min-h-[2px] max-h-[2px] mb-1 bg-black relative after:w-full after:h-full  after:absolute after:top-0 after:left-0 ${open ? "rotate-45 after:rotate-90 after:bg-black !bg-black" : ""}`}></span>
                 <span className={`w-6 transition-all duration-300 min-h-[2px] max-h-[2px] mb-1 bg-black ${open ? "hidden" : ""}`}></span>
@@ -35,20 +35,20 @@ const Header = () => {
                 <div className="w-full xl:max-w-[650px] lg:max-w-lg md:max-w-md flex justify-between items-center ps-[30px] py-1.5 pe-[7px] border border-off-white rounded-full">
                     <input className="pe-6 outline-none w-full lg:block max-lg:hidden bg-transparent max-h-max lg:placeholder:text-sm placeholder:text-xs placeholder:text-light-brown" type="text" placeholder="What do you feel like listening to right now ?" />
                     <input className="pe-4 outline-none max-w-[328px] w-full lg:hidden max-lg:block bg-transparent max-h-max lg:placeholder:text-sm placeholder:text-xs placeholder:text-light-brown" type="text" placeholder="Search..." />
-                    <div className="bg-black lg:min-w-[39px] min-w-8 lg:min-h-[39px] min-h-8 cursor-pointer justify-center items-center flex rounded-full">
+                    <div onClick={handleOpen} className="bg-black lg:min-w-[39px] min-w-8 hover:scale-[1.08] transition-all ease-linear duration-300 lg:min-h-[39px] min-h-8 cursor-pointer justify-center items-center flex rounded-full">
                         <SearchIcon />
                     </div>
                 </div>
                 <div className="lg:hidden max-lg:block">
-                <div className="gap-4 flex">
-                    <button className="text-black font-medium transition-all duration-300 ease-linear hover:bg-black hover:text-white px-6 py-[9px] rounded-[9px]">Login</button>
-                    <button className="bg-black text-white px-6 py-[9px] whitespace-nowrap rounded-[9px] hover:text-black hover:bg-transparent font-medium transition-all duration-300 ease-linear">Sign Up</button>
-                </div>
+                    <div className="gap-4 flex">
+                        <button onClick={handleOpen} className="text-black font-medium transition-all duration-300 ease-linear hover:bg-black hover:text-white px-6 py-[9px] rounded-[9px]">Login</button>
+                        <button onClick={handleOpen} className="bg-black text-white px-6 py-[9px] whitespace-nowrap rounded-[9px] hover:text-black hover:bg-transparent font-medium transition-all duration-300 ease-linear">Sign Up</button>
+                    </div>
                 </div>
             </div>
             <div className="lg:block max-lg:hidden ">
-                <div className="gap-4 flex">
-                    <button className="text-black font-medium transition-all duration-300 ease-linear hover:bg-black hover:text-white px-6 py-[9px] rounded-[9px]">Login</button>
+                <div className="gap-5 flex">
+                    <button className="text-black font-medium transition-all duration-300 ease-linear hover:text-blue-700 rounded-[9px]">Login</button>
                     <button className="bg-black text-white px-[22px] py-[9.5px] whitespace-nowrap rounded-[9px] hover:text-black hover:bg-transparent font-medium transition-all duration-300 ease-linear">Sign Up</button>
                 </div>
             </div>

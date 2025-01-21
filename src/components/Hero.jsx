@@ -8,7 +8,7 @@ import SideImg from '../assets/images/png/hero-side-img.png';
 
 const Hero = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [selectedTab, setSelectedTab] = useState(searchParams.get('tab') || 'All');
+    const [selectedTab, setSelectedTab] = useState(searchParams.get('tab') || 'all');
     const [profileName, setProfileName] = useState('Billie Eilish');
 
     const handleTabChange = (tab) => {
@@ -20,7 +20,7 @@ const Hero = () => {
         setProfileName(`${letter}illen Eilish`);
         setSearchParams((prevParams) => {
             const newParams = new URLSearchParams(prevParams);
-            newParams.set('category', letter);   
+            newParams.set('category', letter.toLowerCase());   
             return newParams;
         });
     };
@@ -41,15 +41,15 @@ const Hero = () => {
                 <Header />
                 <div className="flex max-lg:flex-col gap-[15px] xl:mb-[43px] lg:mb-9 md:mb-7 mb-5">
                     <div className="flex gap-[5px]">
-                        <CustomButton className={`${selectedTab === 'All' ? 'bg-black text-white' : ''}`} title="All" onClick={() => handleTabChange('All')} />
-                        <CustomButton className={`${selectedTab === 'Pop' ? 'bg-black text-white' : ''}`} title="Pop" onClick={() => handleTabChange('Pop')} />
-                        <CustomButton className={`${selectedTab === 'Rock' ? 'bg-black text-white' : ''}`} title="Rock" onClick={() => handleTabChange('Rock')} />
-                        <select  className='border border-black lg:px-1.5 lg:text-xs px-1 py-0.5 hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]'
+                        <CustomButton className={`${selectedTab === 'All' ? 'bg-black text-white' : ''}`} title="All" onClick={() => handleTabChange('all')} />
+                        <CustomButton className={`${selectedTab === 'Pop' ? 'bg-black text-white' : ''}`} title="Pop" onClick={() => handleTabChange('pop')} />
+                        <CustomButton className={`${selectedTab === 'Rock' ? 'bg-black text-white' : ''}`} title="Rock" onClick={() => handleTabChange('rock')} />
+                        <select  className='border border-black !text-xs lg:px-1.5 px-1 py-0.5 hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]'
                             onChange={(e) => handleTabChange(e.target.value)} value={selectedTab}>
-                            <option default className='max-w-max'>More</option>
-                            <option value="All">All</option>
-                            <option value="Pop">Pop</option>
-                            <option value="Rock">Rock</option>
+                            <option className='text-xs' default>More</option>
+                            <option className='text-xs' value="all">All</option>
+                            <option className='text-xs' value="pop">Pop</option>
+                            <option className='text-xs' value="rock">Rock</option>
                         </select>
                     </div>
                     <div className="flex gap-[1.5px] overflow-x-scroll scrollbar-hide w-full">
@@ -66,7 +66,7 @@ const Hero = () => {
                     <div className="flex flex-wrap">
                         <div className="lg:w-8/12 w-full flex flex-col max-lg:items-center mx-auto">
                             <h1 className='uppercase lg:!leading-[82%] max-lg:text-center text-white font-bold lg:text-5xl md:text-4xl text-3xl font-Montserrat xl:mb-[109px] lg:mb-20 md:mb-16 sm:mb-12 mb-6'>
-                                {selectedTab === 'All' ? 'hit me hard and soft' : selectedTab === 'Pop' ? 'Pop Hits' : selectedTab === 'Rock' ? 'Rock Hits' : 'hit me hard and soft'}
+                                {selectedTab === 'all' ? 'hit me hard and soft' : selectedTab === 'pop' ? 'Pop Hits' : selectedTab === 'rock' ? 'Rock Hits' : 'hit me hard and soft'}
                             </h1>
                             <div className="flex gap-[26px] items-center lg:-mb-14">
                                 <img className='xl:max-w-[206px] lg:max-w-44 md:max-w-40 sm:max-w-32 max-w-28 w-full' src={ProfileImg} alt="profile-img" />
