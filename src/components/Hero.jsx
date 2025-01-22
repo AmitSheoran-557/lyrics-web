@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../common/Header';
 import CustomButton from '../common/CustomButton';
 import { HERO_ALPHABET_LIST } from '../utils/helper';
@@ -7,32 +7,35 @@ import ProfileImg from '../assets/images/png/profile-img.png';
 import SideImg from '../assets/images/png/hero-side-img.png';
 
 const Hero = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [selectedTab, setSelectedTab] = useState(searchParams.get('tab') || 'all');
-    const [profileName, setProfileName] = useState((''));
+    const navigate = useNavigate();
+    const location = useLocation();
+    const storedLetter = localStorage.getItem('selectedLetter') || '';
+    const [selectedLetter, setSelectedLetter] = useState(storedLetter);
 
+    const handleLetterClick = (letter) => {
+        setSelectedLetter(letter);
+        localStorage.setItem('selectedLetter', letter);
+        const queryParams = new URLSearchParams(location.search);
+        queryParams.set('letter', letter.toLowerCase());
+        const currentTab = localStorage.getItem('selectedTab') || 'all';
+        navigate(`?${queryParams.toString()}`);
+    };
+
+    const storedTab = localStorage.getItem('selectedTab') || 'all';
+    const [selectedTab, setSelectedTab] = useState(storedTab);
     const handleTabChange = (tab) => {
         setSelectedTab(tab);
-        setSearchParams({ tab});  
+        localStorage.setItem('selectedTab', tab);
+        navigate(`/${tab}`);
     };
 
-    const handleAlphabetClick = (letter) => {
-        setProfileName(`${letter}illen Eilish`);  
-        setSearchParams((prevParams) => {
-            const newParams = new URLSearchParams(prevParams);
-            newParams.set('category', letter.toLowerCase());  
-            return newParams;
-        });
+    const tabHeadingMap = {
+        all: 'Hit Me Hard and Soft',
+        pop: 'Pop Hits',
+        rock: 'Rock Classics',
     };
 
-    useEffect(() => {
-        const tab = searchParams.get('tab') || 'All';
-        setSelectedTab(tab);
-        const category = searchParams.get('category');
-        if (category) {
-            setProfileName(`${category.toUpperCase()}illen Eilish`);
-        }
-    }, [searchParams]);
+    const headingText = tabHeadingMap[selectedTab] || tabHeadingMap.all;
 
     return (
         <div className='flex flex-col justify-center items-center pb-5'>
@@ -40,12 +43,11 @@ const Hero = () => {
                 <Header />
                 <div className="flex max-lg:flex-col gap-[15px] xl:mb-[43px] lg:mb-9 md:mb-7 mb-5">
                     <div className="flex gap-[5px]">
-                        <CustomButton className={`${selectedTab === 'All' ? 'bg-black text-white' : ''}`} title="All" onClick={() => handleTabChange('all')} />
-                        <CustomButton className={`${selectedTab === 'Pop' ? 'bg-black text-white' : ''}`} title="Pop" onClick={() => handleTabChange('pop')} />
-                        <CustomButton className={`${selectedTab === 'Rock' ? 'bg-black text-white' : ''}`} title="Rock" onClick={() => handleTabChange('rock')} />
-                        <select  className='border border-black !text-xs lg:px-1.5 px-1 py-0.5 hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]'
-                            onChange={(e) => handleTabChange(e.target.value)} value={selectedTab}>
-                            <option className='text-xs' default>More</option>
+                        <CustomButton className={selectedTab === 'all' ? 'bg-black text-white' : ''} onClick={() => handleTabChange('all')} title="All" />
+                        <CustomButton className={selectedTab === 'pop' ? 'bg-black text-white' : ''} onClick={() => handleTabChange('pop')} title="Pop" />
+                        <CustomButton className={selectedTab === 'rock' ? 'bg-black text-white' : ''} onClick={() => handleTabChange('rock')} title="Rock" />
+                        <select className='border border-black !text-xs lg:px-1.5 px-1 py-0.5 hover:bg-black hover:text-white transition-all ease-linear duration-300 rounded-[9px]' value={selectedTab}
+                            onChange={(e) => handleTabChange(e.target.value)}  >
                             <option className='text-xs' value="all">All</option>
                             <option className='text-xs' value="pop">Pop</option>
                             <option className='text-xs' value="rock">Rock</option>
@@ -53,9 +55,7 @@ const Hero = () => {
                     </div>
                     <div className="flex gap-[1.4px] overflow-x-scroll scrollbar-hide w-full">
                         {HERO_ALPHABET_LIST.map((item, index) => (
-                            <button key={index}
-                                className={`uppercase hover:bg-black text-black min-w-[29px] min-h-[29px] rounded-full hover:text-white transition-all ease-linear duration-300 ${profileName.startsWith(item) ? 'bg-black text-white' : ''}`}
-                                onClick={() => handleAlphabetClick(item)}>
+                            <button onClick={() => handleLetterClick(item)} key={index} className={`uppercase hover:bg-black text-black min-w-[29px] min-h-[29px] rounded-full hover:text-white transition-all ease-linear duration-300 ${(item)}`}>
                                 {item}
                             </button>
                         ))}
@@ -65,14 +65,15 @@ const Hero = () => {
                     <div className="flex flex-wrap">
                         <div className="lg:w-8/12 w-full flex flex-col max-lg:items-center mx-auto">
                             <h1 className='uppercase lg:!leading-[82%] max-lg:text-center text-white font-bold lg:text-5xl md:text-4xl text-3xl font-Montserrat xl:mb-[109px] lg:mb-20 md:mb-16 sm:mb-12 mb-6'>
-                                {selectedTab === 'all' ? 'hit me hard and soft' : selectedTab === 'pop' ? 'Pop Hits' : selectedTab === 'rock' ? 'Rock Hits' : 'hit me hard and soft'}
+                                {headingText}
                             </h1>
-                            <div className="flex gap-[26px] items-center lg:-mb-14">
+                            <div className="flex gap-[26px] items-center xl:translate-y-14 lg:translate-y-12">
                                 <img className='xl:max-w-[206px] lg:max-w-44 pointer-events-none md:max-w-40 sm:max-w-32 max-w-28 w-full' src={ProfileImg} alt="profile-img" />
                                 <div>
                                     <h3 className='lg:mb-[5px] mb-0.5 font-semibold lg:text-[32px] text-white md:text-3xl sm:text-2xl text-xl'>
-                                        {profileName}
+                                        {selectedLetter ? `Billie Eilish - ${selectedLetter}` : 'Billie Eilish'}
                                     </h3>
+
                                     <p className='font-Montserrat lg:text-base text-sm text-light-gray'>Released May 17, 2024</p>
                                 </div>
                             </div>

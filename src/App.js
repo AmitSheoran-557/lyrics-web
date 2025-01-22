@@ -5,11 +5,11 @@ import Hero from './components/Hero';
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Hero />} />
-      {/* <Route path="/:tab" element={<Hero />} /> */}
-    </Routes>
-  </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/:category" element={<Hero />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
