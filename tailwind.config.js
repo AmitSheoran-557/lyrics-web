@@ -11,10 +11,12 @@ module.exports = {
         },
         colors: {
           'off-white': '#DBDBF3',
+          'off-white-two': '#FAFAFF',
           'light-brown': '#333333',
           'light-brown-2': '#14191C',
-          'light-black': ' #14191C',
           'light-gray': '#CECECE',
+          'light-gray-2': '#9F9DAB',
+          'blue': ' #007BFF',
         },
         boxShadow:{
           'custom-1':'0px 10px 10px 0px #31374D1A',
