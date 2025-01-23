@@ -24,14 +24,14 @@ const SongsList = () => {
                 <div className="flex flex-wrap w-full mx-auto">
                     <div className="lg:w-8/12 w-full mx-auto justify-center max-lg:flex max-lg:flex-col max-lg:items-center">
                         <div className="max-w-[774px] w-full">
-                            <h2 className='font-semibold xl:text-5xl lg:text-4xl text-3xl text-start'>Songs</h2>
-                            <div className="max-w-4xl mx-auto mt-8" >
-                                < div className="flex flex-wrap xl:mb-[33px] lg:mb-7 mb-6 w-full" >
-                                    <div className="lg:w-7/12 w-6/12 lg:text-sm text-xs font-semibold ps-9">{SONGS_LIST[0].heading}</div>
+                            <h2 className='font-semibold xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-start'>Songs</h2>
+                            <div className="max-w-4xl mx-auto lg:mt-8 md:mt-7 mt-6" >
+                                <div className="flex flex-wrap xl:mb-[33px] lg:mb-7 mb-6 w-full" >
+                                    <div className="lg:w-7/12 w-6/12 lg:text-sm text-xs font-semibold lg:ps-9 ps-8">{SONGS_LIST[0].heading}</div>
                                     <div className="w-3/12 lg:text-sm text-xs font-semibold">{SONGS_LIST[0].releaseDate}</div>
                                     <div className="lg:w-2/12 w-3/12 lg:text-sm text-xs flex lg:justify-end justify-center font-semibold">{SONGS_LIST[0].time}</div>
-                                </div >
-                            </div >
+                                </div>
+                            </div>
                         </div>
                         <div className="max-w-[774px] w-full xl:space-y-11 lg:space-y-9 md:space-y-7 space-y-5" >
                             {SONGS_LIST.slice(1).map((song, index) => (
@@ -46,13 +46,13 @@ const SongsList = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="lg:w-4/12 w-full lg:justify-end justify-center flex max-lg:mt-6">
-                        <div className="bg-blue relative w-[300px] h-[600px] rounded-[20px] flex items-center justify-center text-center">
+                    <div className="lg:w-4/12 w-full lg:ps-10 justify-center flex max-lg:mt-6">
+                        <div className="bg-blue relative lg:w-[300px] max-w-xl w-full lg:h-[600px] min-h-48 py-2 px-2 rounded-[20px] flex items-center justify-center text-center">
                             <input hidden onChange={(e) => handleChange(e)} type="file" id="my-input" multiple />
                             <label htmlFor="my-input" className={`cursor-pointer text-white ${showImage ? "hidden" : "block"}`}>
                                 Add Place
                             </label>
-                            <img className={`w-[300px] h-[600px] object-cover rounded-[20px] ${showImage ? "block" : "hidden"}`} src={uploads} alt="Uploaded content" />
+                            <img className={`max-w-[300px] max-h-[600px]  rounded-[20px] ${showImage ? "block" : "hidden"}`} src={uploads} alt="Uploaded content" />
                             <div onClick={handleRemoveImage} className="flex flex-col gap-2 absolute top-5 right-5 cursor-pointer">
                                 <span className={`${showImage ? "h-0.5 w-7 bg-white rounded-lg rotate-45 translate-y-1.5" : "h-0 w-0"}`}></span>
                                 <span className={`${showImage ? "h-0.5 w-7 bg-white rounded-lg -rotate-45 -translate-y-1" : "h-0 w-0"}`}></span>
