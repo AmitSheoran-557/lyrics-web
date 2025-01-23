@@ -47,7 +47,7 @@ const SongsList = () => {
                         </div>
                     </div>
                     <div className="lg:w-4/12 w-full lg:ps-10 justify-center flex max-lg:mt-6">
-                        <div className="bg-blue relative lg:w-[300px] max-w-xl w-full lg:h-[600px] min-h-48 py-2 px-2 rounded-[20px] flex items-center justify-center text-center">
+                        <div className="bg-blue relative lg:w-[300px] max-w-xl w-full max-h-[600px] lg:h-[600px] min-h-48 py-2 px-2 rounded-[20px] flex items-center justify-center text-center">
                             <input hidden onChange={(e) => handleChange(e)} type="file" id="my-input" multiple />
                             <label htmlFor="my-input" className={`cursor-pointer text-white ${showImage ? "hidden" : "block"}`}>
                                 Add Place

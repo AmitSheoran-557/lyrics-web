@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FOOTER_LIST, FOOTER_LIST_TWO, HERO_ALPHABET_LIST } from '../utils/helper';
-import { Navigate } from 'react-router-dom';
 
 const Footer = () => {
     const [selectedLetter, setSelectedLetter] = useState(localStorage.getItem('selectedLetter') || '');
@@ -8,7 +7,6 @@ const Footer = () => {
     const handleLetterClick = (letter) => {
         setSelectedLetter(letter);
         localStorage.setItem('selectedLetter', letter);
-        // Navigate(`?letter=${letter.toLowerCase()}`);
     };
     return (
         <div className='flex flex-col justify-center items-center bg-off-white-two'>

@@ -74,13 +74,13 @@ const Hero = () => {
                         ))}
                     </div>
                 </div>
-                <div className="tab-section bg-light-brown-2 rounded-[22px] xl:pt-[43px] lg:pt-9 md:pt-8 sm:pt-7 pt-6 xl:ps-12 lg:ps-10 md:ps-7 ps-5 xl:pe-[43px] lg:pe-10 md:pe-7 pe-5 max-lg:pb-7 max-sm:pb-6">
+                <div className="lg:max-h-[347px] bg-light-brown-2 rounded-[22px] xl:pt-[43px] lg:pt-9 md:pt-8 sm:pt-7 pt-6 xl:ps-12 lg:ps-10 md:ps-7 ps-5 xl:pe-[43px] lg:pe-10 md:pe-7 pe-5 max-lg:pb-7 max-sm:pb-6">
                     <div className="flex flex-wrap">
                         <div className="lg:w-8/12 w-full flex flex-col max-lg:items-center mx-auto">
                             <h1 className='uppercase lg:!leading-[82%] max-lg:text-center text-white font-bold lg:text-5xl md:text-4xl text-3xl font-Montserrat xl:mb-[109px] lg:mb-20 md:mb-16 sm:mb-12 mb-6'>
                                 {headingText}
                             </h1>
-                            <div className="flex gap-[26px] items-center xl:translate-y-14 lg:translate-y-12">
+                            <div className="flex gap-[26px] items-center xl:translate-y-0 lg:translate-y-10">
                                 <img className='xl:max-w-[206px] lg:max-w-44 pointer-events-none md:max-w-40 sm:max-w-32 max-w-28 w-full' src={ProfileImg} alt="profile-img" />
                                 <div>
                                     <h3 className='lg:mb-[5px] mb-0.5 font-semibold lg:text-[32px] text-white md:text-3xl sm:text-2xl text-xl'>
