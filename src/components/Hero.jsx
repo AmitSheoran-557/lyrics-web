@@ -46,7 +46,7 @@ const Hero = () => {
     const headingText = tabHeadingMap[selectedTab] || tabHeadingMap.all;
 
     return (
-        <div className='flex flex-col justify-center items-center mb-[100px]'>
+        <div className='flex flex-col justify-center items-center xl:pb-[100px] lg:pb-20 md:pb-16 pb-12 bg-off-white-two'>
             <div className="max-w-[1140px] mx-auto w-full max-xl:px-4">
                 <Header />
                 <div className="flex max-lg:flex-col gap-[15px] xl:mb-[43px] lg:mb-9 md:mb-7 mb-5">
@@ -67,8 +67,7 @@ const Hero = () => {
                             <button
                                 onClick={() => handleLetterClick(item)}
                                 key={index}
-                                className={`uppercase ${selectedLetter === item ? 'bg-black text-white' : ''} text-black min-w-[29px] min-h-[29px] rounded-full hover:bg-black hover:text-white transition-all ease-linear duration-300`}
-                            >
+                                className={`uppercase ${selectedLetter === item ? 'bg-black text-white' : ''} text-black min-w-[29px] min-h-[29px] rounded-full hover:bg-black hover:text-white transition-all ease-linear duration-300`}>
                                 {item}
                             </button>
                         ))}

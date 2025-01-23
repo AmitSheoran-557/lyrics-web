@@ -25,13 +25,13 @@ const Footer = () => {
                             <div className="lg:max-w-4xl w-full mx-auto flex justify-center items-center" >
                                 <div className="flex flex-wrap xl:mb-[37px] justify-center lg:mb-8 md:mb-7 sm:mb-6 mb-4 w-full" >
                                     <div className="w-4/12 max-lg:flex flex-col items-center justify-center">
-                                        <div className="font-semibold lg:text-sm text-xs !leading-[174%]">{FOOTER_LIST[0].heading}</div>
+                                        <div className="font-semibold lg:text-sm text-xs !leading-[171%]">{FOOTER_LIST[0].heading}</div>
                                     </div>
                                     <div className="w-4/12 max-lg:flex flex-col items-center justify-center">
-                                        <div className="font-semibold lg:text-sm text-xs !leading-[174%]">{FOOTER_LIST[0].songs}</div>
+                                        <div className="font-semibold lg:text-sm text-xs !leading-[171%]">{FOOTER_LIST[0].songs}</div>
                                     </div>
                                     <div className="w-4/12 max-lg:flex flex-col items-center justify-center">
-                                        <div className="font-semibold lg:text-sm text-xs !leading-[174%]">{FOOTER_LIST[0].artist}</div>
+                                        <div className="font-semibold lg:text-sm text-xs !leading-[171%]">{FOOTER_LIST[0].artist}</div>
                                     </div>
                                 </div>
                             </div>
@@ -46,12 +46,12 @@ const Footer = () => {
                                         </div>
                                         <div className="w-4/12 max-lg:flex flex-col items-center justify-start">
                                             <div className='flex'>
-                                                <p className='lg:text-sm text-xs !leading-[200%] text-light-brown-2'>{song.aboutSong}</p>
+                                                <p className='lg:text-sm text-xs !leading-[171%] text-light-brown-2'>{song.aboutSong}</p>
                                             </div>
                                         </div>
                                         <div className="w-4/12 max-lg:flex flex-col items-center justify-start">
                                             <div className='flex'>
-                                                <p className='lg:text-sm text-xs !leading-[200%] text-light-brown-2'>{song.aboutArtist}</p>
+                                                <p className='lg:text-sm text-xs !leading-[171%] text-light-brown-2'>{song.aboutArtist}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -75,10 +75,10 @@ const Footer = () => {
             <div className="border-t border-off-white w-full xl:py-[30px] lg:py-6 py-5 justify-center items-center flex">
                 <div className="max-w-[1140px] mx-auto w-full md:px-4">
                     <div className="flex flex-wrap w-full justify-between md:gap-5 gap-3">
-                        <p className='text-light-brown-2 lg:text-sm text-xs text-center max-lg:mx-auto max-lg:px-6'>All rights reserved to Global Media Holdings Ltd. {new Date().getFullYear()}</p>
+                        <p className='text-light-brown-2 lg:text-sm text-xs !leading-[171%] text-center max-lg:mx-auto max-lg:px-6'>All rights reserved to Global Media Holdings Ltd. {new Date().getFullYear()}</p>
                         <div className='flex lg:gap-10 gap-7 max-lg:px-6 max-lg:mx-auto'>
-                            <a className='text-light-brown-2 lg:text-sm text-xs' href="/">Privacy Policy</a>
-                            <a className='text-light-brown-2 lg:text-sm text-xs' href="/">Terms of Use</a>
+                            <a className='text-light-brown-2 lg:text-sm text-xs !leading-[171%]' href="/">Privacy Policy</a>
+                            <a className='text-light-brown-2 lg:text-sm text-xs !leading-[171%]' href="/">Terms of Use</a>
                         </div>
                     </div>
                 </div>
