@@ -116,27 +116,27 @@ export const FOOTER_LIST = [
 
 export const FOOTER_LIST_TWO = [
     {
-        title: 'Lyrics Web',
-        link: 'Songs',
+        title: 'Facebook',
         image: Facebook,
-        alt:'facebook-logo'
+        link: 'https://www.facebook.com/',
+        alt: 'facebook-logo'
     },
     {
-        title: 'Home',
-        link: 'Top Songs',
+        title: 'Instagram',
+        link: 'https://www.instagram.com/',
         image: Instagram,
-        alt:'instagram-logo'
+        alt: 'instagram-logo'
     },
     {
-        title: 'About Us',
-        link: 'Releases',
+        title: 'Youtube',
+        link: 'https://www.youtube.com/',
         image: Youtube,
-        alt:'youtube-logo'
+        alt: 'youtube-logo'
     },
     {
-        title: 'Help',
-        link: 'Add a new song',
+        title: 'Pinterest',
+        link: 'https://www.pinterest.com/',
         image: Pinterest,
-        alt:'pinterest-logo'
+        alt: 'pinterest-logo'
     },
 ];

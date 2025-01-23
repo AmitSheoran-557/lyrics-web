@@ -26,24 +26,22 @@ const SongsList = () => {
                         <div className="max-w-[774px] w-full">
                             <h2 className='font-semibold xl:text-5xl lg:text-4xl text-3xl text-start'>Songs</h2>
                             <div className="max-w-4xl mx-auto mt-8" >
-                                {/* Table Headers */}
-                                < div className="flex flex-wrap mb-[33px]" >
-                                    <div className="w-7/12 font-semibold ps-9">{SONGS_LIST[0].heading}</div>
-                                    <div className="w-3/12 font-semibold">{SONGS_LIST[0].releaseDate}</div>
-                                    <div className="w-2/12 flex justify-end font-semibold">{SONGS_LIST[0].time}</div>
+                                < div className="flex flex-wrap xl:mb-[33px] lg:mb-7 mb-6 w-full" >
+                                    <div className="lg:w-7/12 w-6/12 lg:text-sm text-xs font-semibold ps-9">{SONGS_LIST[0].heading}</div>
+                                    <div className="w-3/12 lg:text-sm text-xs font-semibold">{SONGS_LIST[0].releaseDate}</div>
+                                    <div className="lg:w-2/12 w-3/12 lg:text-sm text-xs flex lg:justify-end justify-center font-semibold">{SONGS_LIST[0].time}</div>
                                 </div >
                             </div >
                         </div>
-                        {/* Table Content */}
-                        <div className="max-w-[774px] w-full space-y-11" >
+                        <div className="max-w-[774px] w-full xl:space-y-11 lg:space-y-9 md:space-y-7 space-y-5" >
                             {SONGS_LIST.slice(1).map((song, index) => (
                                 <div key={index} className="flex flex-wrap" >
                                     <div className='w-6/12 flex lg:gap-[17px] gap-3'>
                                         <p className='text-light-gray-2 lg:text-sm text-xs !leading-[171.43%] min-w-[19px]'>{song.counting}.</p>
                                         <h4 className='font-semibold lg:text-sm text-xs !leading-[171.43%]'>{song.songName}</h4>
                                     </div>
-                                    <div className='w-3/12 justify-center flex'><p className='text-xs !leading-[200%] text-light-brown'>{song.date}</p></div>
-                                    <div className='w-3/12 justify-end flex'><p className='text-xs !leading-[200%] text-light-brown'>{song.playedTime}</p></div>
+                                    <div className='w-3/12 lg:justify-center flex'><p className='text-xs !leading-[200%] text-light-brown'>{song.date}</p></div>
+                                    <div className='w-3/12 lg:justify-end justify-center flex'><p className='text-xs !leading-[200%] text-light-brown'>{song.playedTime}</p></div>
                                 </div>
                             ))}
                         </div>
